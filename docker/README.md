@@ -1,6 +1,13 @@
-## conf
+## docker logs under swarm 
 
-### change data-directory
+```
+docker service ps --no-trunc {serviceName}
+journalctl -u docker.service | tail -n 50 
+```
+
+source: https://stackoverflow.com/questions/45372848/docker-swarm-how-to-find-out-why-service-cant-start
+
+## change data-directory
 
 
 TL;DR
