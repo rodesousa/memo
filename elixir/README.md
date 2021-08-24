@@ -47,3 +47,13 @@ config :binance,
   api_key: System.get_env("BINANCE_API_KEY") || raise("BINANCE_API_KEY"),
   secret_key: System.get_env("BINANCE_SECRET_KEY") || raise("BINANCE_SECRET_KEY"),
   end_point: "https://api.binance.us" # Add for the US API end point. The default is for "https://api.binance.com"
+
+```
+defmodule Binance.Config do
+  @moduledoc """
+  Provides configuration keys settings during the runtime.
+  """
+  def set(:api_key, value), do: Application.put_env(:binance, :api_key, value)
+  def set(:secret_key, value), do: Application.put_env(:binance, :secret_key, value)
+  end
+```
