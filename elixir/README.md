@@ -59,3 +59,11 @@ defmodule Binance.Config do
   def set(:secret_key, value), do: Application.put_env(:binance, :secret_key, value)
   end
 ```
+
+## ecto
+
+Create ecrto config with postgres
+
+```
+mix ecto.gen.repo -r Friends.Repo
+```
