@@ -67,3 +67,43 @@ Create ecrto config with postgres
 ```
 mix ecto.gen.repo -r Friends.Repo
 ```
+
+Add schema
+
+```
+defmodule Pex.Repo.Migrations.CreateOrder do
+  use Ecto.Migration
+
+  def change do
+    create table(:orders) do
+      add(:type, :string)
+      add(:quantity, :float)
+      add(:purchase_id, references(:purchases))
+      add(:price, :float)
+    end
+
+    create(index(:orders, [:id]))
+  end
+end
+
+defmodule Pex.Trade.Order do
+  use Ecto.Schema
+  import Ecto.Changeset
+
+  schema "orders" do
+    field(:type, :string)
+    field(:quantity, :float)
+    field(:price, :float)
+
+    belongs_to(:purchase, Pex.Trade.Purchase)
+  end
+
+  @attrs [:symbol, :quantity, :price, :purchase_id]
+
+  def changeset(purchase, params \\ %{}) do
+    purchase
+    |> cast(params, @attrs)
+    |> validate_required(@attrs)
+  end
+end
+```
