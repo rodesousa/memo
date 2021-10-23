@@ -107,3 +107,10 @@ defmodule Pex.Trade.Order do
   end
 end
 ```
+
+## mix deps
+
+```
+mix deps.clean name
+mix deps.update name
+```
