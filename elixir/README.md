@@ -114,3 +114,22 @@ end
 mix deps.clean name
 mix deps.update name
 ```
+
+## How to have a exe time ?
+
+```
+start = System.monotonic_time(:milisecond)
+milli_taken = System.monotonic_time(:milisecond) - start
+Logger.info("Mill taken = #{milli_taken}")
+```
+
+## Log configuration
+
+```
+# config/config.exs
+
+config :logger, :console,
+  level: :debug,
+  format: "$date $time [$level] $metadata$message\n",
+  metadata: [:user_id]
+```
