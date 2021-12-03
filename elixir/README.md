@@ -133,3 +133,32 @@ config :logger, :console,
   format: "$date $time [$level] $metadata$message\n",
   metadata: [:user_id]
 ```
+
+## Enum tips
+
+```
+Enum.frequencies
+Enum.max_by (with struct)
+Enum.zip
+```
+
+## String tips
+
+```
+String.split(trim: true)
+String.trim
+```
+
+## Tuple tips
+
+```
+Tuple.to_list
+elem({1,2}, 0) # 1
+```
+
+## function tips
+
+```
+...
+|> Enum.map(&String.to_integer(&1)) == Enum.map(& String.to_integer/1)
+```
