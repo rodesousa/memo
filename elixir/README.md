@@ -1,10 +1,18 @@
 # Elixir
 
+- [Awesome](#awesome)
 - [Makefile](./Makefile)
 - [Supervisor](#supervisor)
-- [Ecto](#ecto)
+- [Ecto](ecto.md)
 - [Phoenix](#phoenix)
 - [Config Env var](#env-var)
+- [Formating](#formating)
+
+## Awesome
+
+Phoenix example:
+
+- https://github.com/chrismccord/phoenix_live_view_example
 
 ## supervisor
 
@@ -24,14 +32,12 @@ def start(_type, _args) do
 end
 ```
 
-## ecto
-
-```
-mix ecto.create
-mix ecto.migrate
-```
-
 ## phoenix
+
+```
+mix archive.install hex phx_new
+mix phx.new hello
+```
 
 ### json
 
@@ -142,6 +148,8 @@ Enum.max_by (with struct)
 Enum.zip
 ```
 
+Just remember that length/1 is linear wrt the length of the list passed as an argument. Pattern matching against [elem] is constant.
+
 ## String tips
 
 ```
@@ -158,7 +166,10 @@ elem({1,2}, 0) # 1
 
 ## function tips
 
-```
 ...
 |> Enum.map(&String.to_integer(&1)) == Enum.map(& String.to_integer/1)
 ```
+
+## Formating
+
+- https://bartoszgorka.com/global-customize-for-inspect-data-in-elixir

@@ -1,13 +1,15 @@
 # cmd
 
+- [Mount](#mount)
+
 ## Port already binded
 
 ```
 sudo netstat -lntp
-sudo lsof -i -P -n | grep LISTEN
+sudo lsof -i -P -n | grep LISTEN | grep 4000
 sudo netstat -tulpn | grep LISTEN
 sudo ss -tulpn | grep LISTEN
-sudo lsof -i:22 ## see a specific port such as 22 ##
+sudo lsof -i:22
 sudo nmap -sTU -O IP-address-Here
 ```
 
@@ -44,4 +46,17 @@ du -sh ./*/
 
 ```
 find . -name thisfile.txt
+```
+
+## json
+
+```
+jq or python3 -m json.tool
+```
+
+## mount
+
+```
+mkfs.ext4 /dev/sda # if block has not ext4
+sudo mount /dev/sda /docker
 ```

@@ -1,0 +1,1 @@
+:CocCommand workspace.showOutput
